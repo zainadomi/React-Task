@@ -416,7 +416,7 @@ font-size: 14px;
 .moviePosterImg{
   height: 95%;
   width: 300px;
-  background-image: url('https://remezcla.com/wp-content/uploads/2017/10/Coco-59dfafd806ae6.jpg');
+  /* background-image: url('https://remezcla.com/wp-content/uploads/2017/10/Coco-59dfafd806ae6.jpg'); */
   border-radius: 12px;
  margin-right: 3%;
  border:0 ;

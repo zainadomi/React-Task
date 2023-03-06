@@ -1,28 +1,15 @@
 import React from 'react';
-import { useState} from 'react';
 import {useNavigate} from 'react-router-dom';
 
 
 
-export function SearchField (){
+export function SearchField ({setQuery}){
   const navigate = useNavigate();
-    const [searchInput, setSearch] = useState("");
+
     const handleSubmit = (event) => {
         event.preventDefault();
-        // alert(`You search about: ${searchInput}`);
-        
         navigate('/search');
       }
-
-      // const navigateFunction = () =>{
-      //   const navigate = useNavigate();
-      //   navigate('search')
-      // }
-
-      //  wrapperFunction = () =>{
-      //     handleSubmit();
-      //     navigateFunction();
-      // }
 
 
     return (
@@ -30,11 +17,12 @@ export function SearchField (){
         <div className="search">
              <input className="searchField"
               type='text'
-              value={searchInput}
-              onChange  ={(e) => setSearch(e.target.value)}
+              onChange  ={(e) => setQuery(e.target.value)}
               placeholder="Search for a movie, tv show, person......" >
             </input>
-            <button type='submit'  className="searchButton" >Search</button>
+            <button type='submit'  className="searchButton" onClick={()=>{
+              navigate('search');
+            }} >Search</button>
         </div>
         </form> 
     )

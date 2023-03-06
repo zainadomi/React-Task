@@ -1,23 +1,22 @@
 import { useEffect, useState } from "react";
-import {useNavigate } from "react-router-dom"; 
+import { Link } from "react-router-dom";
 import MovieDetails from "./MovieDetails";
 // import { CircularProgressbar,buildStyles } from "react-circular-progressbar";
 // import 'react-circular-progressbar/dist/styles.css';
 
 
 export function GetMovies() {
-    const navigate = useNavigate();
     const [data, setData] = useState([]);
 
-    const moveTo = ()=>{
-        navigate({
-        pathname:'/details',
-  
-        });
+    // const moveTo = () => {
+    //     navigate({
+    //         pathname: '/details/:movieId',
 
-    }       
+    //     });
 
-    const  getMovies = ()=> {
+    // }
+
+    const getMovies = () => {
         var requestOptions = {
             method: 'GET',
             redirect: 'follow'
@@ -35,29 +34,17 @@ export function GetMovies() {
     console.log(data)
     return (
         <>
-        <div className="mainDiv" onClick={()=> moveTo()}>
+            <div className="mainDiv">
                 {data.map(item =>
                     <div className="postContainer" key={item.id}>
+                        <Link to={`/details/${item.id}`}> 
                         <img className="posterImage" src={`http://image.tmdb.org/t/p/w500/${item.poster_path}`} alt={item.title} />
-                        {/* <div className="circularProgressBar">
-                        <CircularProgressbar
-                            value={item.vote_average}
-                            text={item.vote_average}
-                            styles={buildStyles({
-                                strokeLinecap: 'butt',
-                                textSize: '30px',
-                                // pathTransitionDuration: 0.5,
-                                textColor: '#f88',
-                                backgroundColor: '#101010',
-                                trailColor: '#339933',
-                                
-                            })}
-                            />
-                        </div> */}
+                        </Link>
+
                         <div className="movieDescreption">
                             <h4 className="movieTitle">{item.title}</h4>
                             <p className="pubDate">{item.release_date}</p>
-                        
+
                         </div>
                     </div>
 

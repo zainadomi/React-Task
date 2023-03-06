@@ -1,26 +1,28 @@
 import { NavBar } from "./NavBar";
 import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+// api_key=a971131533ecd1f4d0cb562ab92a94ef
 
-const MovieDetails = (props) => {
-    const [details, setDetails] = useState([]);
- 
+const MovieDetails = () => {
+    const [details, setDetails] = useState({});
+    const {movieId} = useParams();
+
+    useEffect(() => {
+        getDetails()
+    })
 
     const getDetails = () => {
-        var requestOptions = {
-            method: 'GET',
-            redirect: 'follow'
-        };
 
-        fetch(`https://api.themoviedb.org/3/movie/${props.id}}/credits?api_key=a971131533ecd1f4d0cb562ab92a94ef`, requestOptions)
+
+        fetch(`https://api.themoviedb.org/3/movie/${movieId}?api_key=a971131533ecd1f4d0cb562ab92a94ef&language=en-US
+        `)
             .then(response => response.json())
-            .then(details => setDetails(details.results))
+            .then(data => setDetails(data))
             .catch(error => console.log('error', error));
 
     }
-    useEffect(() => {
-        getDetails()
-    }, [])
-    console.log(details);
+   
+    // console.log(details);
 
     return (
         <>
@@ -28,17 +30,17 @@ const MovieDetails = (props) => {
             <div className="mainMovieDetailsContainer">
                 <img className="backgroundImg"></img>
                 <div className="rowMovieDetails">
-                    <img className="moviePosterImg"></img>
+                    <img className="moviePosterImg" src={`http://image.tmdb.org/t/p/w500/${details.poster_path}`} alt=''></img>
                     <div>
-                        <h1 className="movieName">Home</h1>
+                        <h1 className="movieName">{details.original_title}</h1>
                         <div className="movieTypeAndReleaseDate">
-                            {/* <p>{id} . {id} . {id} . {id}</p>   */}
+                            <p></p>  
                         </div>
-                        <div className="popularity">17.3</div>
+                        <div className="popularity">{details.vote_average}</div>
                         <p className="tagline">Tagline</p>
                         <div>
                             <h3 className="movieOverviewTitle">Overview</h3>
-                            <p className="movieOverviewDescription">This is an overview and something about the movie.</p>
+                            <p className="movieOverviewDescription">{details.overview}</p>
                         </div>
                     </div>
 

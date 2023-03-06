@@ -4,12 +4,13 @@ import { NavBar } from "./Components/NavBar";
 import { Footer } from "./Components/Footer";
 import { GetMovies } from "./Components/GetMovies";
 import { MoviesHeader } from "./Components/MoviesHeader";
-export function Home() {
+
+export function Home({setQuery}) {
     return (
         <>
 
             <NavBar />
-            <Header />
+            <Header setQuery={setQuery} />
             <MoviesHeader />
             <GetMovies />
             <Footer />
