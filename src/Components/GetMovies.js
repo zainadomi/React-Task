@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
-import {createSearchParams ,useNavigate } from "react-router-dom";
+import {useNavigate } from "react-router-dom"; 
+import MovieDetails from "./MovieDetails";
 // import { CircularProgressbar,buildStyles } from "react-circular-progressbar";
 // import 'react-circular-progressbar/dist/styles.css';
 
@@ -8,13 +9,10 @@ export function GetMovies() {
     const navigate = useNavigate();
     const [data, setData] = useState([]);
 
-    const moveTo = (id)=>{
+    const moveTo = ()=>{
         navigate({
         pathname:'/details',
-        search: createSearchParams({
-            id:data.id
-        }).toString()   
-        
+  
         });
 
     }       

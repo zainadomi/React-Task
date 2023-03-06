@@ -33,7 +33,7 @@ export function MoviesHeader() {
 
 
     const handleClick = () => {
-        setActive(!active);
+        setActive(! active);
     };
 
     let baseStyle={
