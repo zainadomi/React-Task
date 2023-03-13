@@ -1,7 +1,6 @@
 import { NavBar } from "./NavBar";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-// api_key=a971131533ecd1f4d0cb562ab92a94ef
 
 const MovieDetails = () => {
     const [details, setDetails] = useState({});
@@ -40,7 +39,7 @@ const MovieDetails = () => {
                         <p className="tagline">Tagline</p>
                         <div>
                             <h3 className="movieOverviewTitle">Overview</h3>
-                            <p className="movieOverviewDescription">{details.overview}</p>
+                            <div className="movieOverviewDescription">{details.overview}</div>
                         </div>
                     </div>
 

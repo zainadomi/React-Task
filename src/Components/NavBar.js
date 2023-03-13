@@ -1,4 +1,12 @@
+import {useNavigate} from 'react-router-dom';
+
+
+
 export function NavBar (){
+    const navigate = useNavigate();
+
+
+
     return (
         <header className="headerContainer">
             <div className="headerContent">
@@ -17,6 +25,12 @@ export function NavBar (){
                             <li className="searchIcon">
                                <div className="searchIconStyle"></div>
                             </li>
+                            <li>
+                               <button className="watchListTab" onClick={()=>{
+                                navigate('watchList')
+                               }}>Watchlist</button>
+                            </li>
+
                         </ul>
                     </div>
 

@@ -56,29 +56,47 @@ ul {
 }
 li {
   float: left;
-  margin-right: 100px;
+  margin-right: 50px;
 }
-.translate{
-  display: flex;
-  align-items: center;
-}
+
 
 .transStyle{
   border: 0.5px solid white;
-  padding: 5px;
+  padding: 4px;
   color: white;
   font-family: 'Courier New', Courier, monospace;
+  font-size: 15px;
 }
 
-.searchIcon {
-  display: flex;
-  align-items: center;
-}
 
 .searchIconStyle{
 color: white;
+margin-top: 10%;
 padding: 12px;
 background-image: url('https://www.themoviedb.org/assets/2/v4/glyphicons/basic/glyphicons-basic-28-search-blue-177462d06db81ff2a02aa022c1c0be5ba4200d7bd3f51091ed9298980e3a26a1.svg');
+
+}
+
+.watchListTab{
+  color: white;
+    margin-top: 7%;
+  font-family: 'Courier New', Courier, monospace;
+  background-color: rgb(	3, 37, 65);
+  border: none;
+  font-size: 15px;
+  cursor: pointer;
+
+}
+
+.watchListTab:hover{
+  color: rgb(209, 208, 208);
+}
+
+.primary{
+  justify-content: center;
+  align-items: center;
+  margin-top: 6%;
+  margin-right: 70px;
 
 }
  /* ----------------------------------- */
@@ -310,6 +328,25 @@ footer{
 
   }
 
+  .addToWatchList{
+    border: none;
+    font-size: 12px;
+    text-align: start;
+    height: 25px;
+    background: linear-gradient(90deg, rgba(149,209,178,1) 0%, rgba(38,178,182,1) 42%);
+    color: white;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    cursor: pointer;
+    border-radius: 8px;
+
+
+  }
+    .addToWatchList:hover{
+      background: linear-gradient(90deg, rgb(126, 190, 157) 0%, rgb(37, 164, 168) 42%);
+
+    }
+
+  
 /* .circularProgressBar{
   width: 30px;
   height: 20px;
@@ -475,11 +512,11 @@ font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans
   color: rgb(194, 193, 193);
   font-size: 18px;
   font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-
 }
 
 .movieOverviewDescription{
   color: rgb(209, 207, 207);
   font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  width: 80%;
 
 }

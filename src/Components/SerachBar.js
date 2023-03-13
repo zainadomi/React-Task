@@ -40,16 +40,16 @@ const SearchBar = () => {
                 </form>
             </div> 
 
-            {searchInput.map((item) =>
-                <div className='moviePostContainer' key={item.id}>
-                    <img className='moviePoster' src={`http://image.tmdb.org/t/p/w500/${item.poster_path}`} alt={item.title}></img>
-                    <div className='movieDescieption'>
-                        <h3>{item.original_title}</h3>
-                        <p className='releaseDate'>{item.release_date}</p>
-                        <p className='movieOverview'>{item.overview}</p>
+                {searchInput.map((item) =>
+                    <div className='moviePostContainer' key={item.id}>
+                        <img className='moviePoster' src={`http://image.tmdb.org/t/p/w500/${item.poster_path}`} alt={item.title}></img>
+                        <div className='movieDescieption'>
+                            <h3>{item.original_title}</h3>
+                            <p className='releaseDate'>{item.release_date}</p>
+                            <p className='movieOverview'>{item.overview}</p>
+                        </div>
                     </div>
-                </div>
-            )}
+                )}
 
 
         </>
