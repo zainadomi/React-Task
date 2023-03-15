@@ -453,7 +453,6 @@ font-size: 14px;
 .moviePosterImg{
   height: 95%;
   width: 300px;
-  /* background-image: url('https://remezcla.com/wp-content/uploads/2017/10/Coco-59dfafd806ae6.jpg'); */
   border-radius: 12px;
  margin-right: 3%;
  border:0 ;
@@ -474,7 +473,6 @@ display: flex;
 .movieTypeAndReleaseDate p {
   margin-top: 0;
   font-size: 17px;
-  /* padding-right: 20px; */
   line-height: 0;
   color: white;
   font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
@@ -486,7 +484,6 @@ display: flex;
   width: 60px ;
   color: white;
 font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-/* background-image: url('https://remezcla.com/wp-content/uploads/2017/10/Coco-59dfafd806ae6.jpg'); */
   background-color: rgb(	3, 37, 65);
   border-radius: 100%;
   margin-top: 16px;
@@ -520,3 +517,15 @@ font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans
   width: 80%;
 
 }
+
+/*-----------------------------------*/ 
+/* Movie Cast Styling */
+
+.mainMovieCastContianer{
+  margin-left: 8%;
+  margin-right: 8%;
+  transition: 0.3s;
+  display: flex;
+  overflow-x:scroll ;
+}
+

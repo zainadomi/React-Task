@@ -1,9 +1,11 @@
 import { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import {setMovies} from '../redux/actions/moviesActions';
 
-
-export function GetMovies() {
-    const [data, setData] = useState([]);
+export function Movies() {
+    const movies = useSelector((state) => state.allMovies.movies);
+    const dispatch = useDispatch();
     const [active, setActive] = useState(false);
     
 
@@ -18,7 +20,7 @@ export function GetMovies() {
           
           fetch(`https://api.themoviedb.org/3/trending/movie/${selectedProps}?api_key=a971131533ecd1f4d0cb562ab92a94ef`, requestOptions)
             .then(response => response.json())
-            .then(data => setData(data.results))
+            .then(data => {dispatch(setMovies(data.results))},)
             .catch(error => console.log('error', error));
 
     }
@@ -27,7 +29,7 @@ export function GetMovies() {
         getMoviesState(active);
          console.log(active);
 
-    }, [active])
+    }, [dispatch])
 
     
     const handleClick = () => {
@@ -68,7 +70,7 @@ export function GetMovies() {
             </div>
         </div>
             <div className="mainDiv">
-                {data.map(item =>
+                {movies.map(item =>
                     <div className="postContainer" key={item.id}>
                         <Link to={`/details/${item.id}`}>
                             <img className="posterImage" src={`http://image.tmdb.org/t/p/w500/${item.poster_path}`} alt={item.title} />

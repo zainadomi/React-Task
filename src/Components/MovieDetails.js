@@ -1,27 +1,30 @@
 import { NavBar } from "./NavBar";
-import { useEffect, useState } from "react";
+import { useEffect} from "react";
 import { useParams } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { selectedMovie } from "../redux/actions/moviesActions";
+
 
 const MovieDetails = () => {
-    const [details, setDetails] = useState({});
-    const {movieId} = useParams();
+    const { movieId } = useParams();
+    const movie = useSelector((state) => state.movie);
+    const dispatch = useDispatch();
 
-    useEffect(() => {
-        getDetails()
-    })
 
     const getDetails = () => {
-
 
         fetch(`https://api.themoviedb.org/3/movie/${movieId}?api_key=a971131533ecd1f4d0cb562ab92a94ef&language=en-US
         `)
             .then(response => response.json())
-            .then(data => setDetails(data))
+            .then(data => { dispatch(selectedMovie(data)) },)
             .catch(error => console.log('error', error));
 
     }
-   
-    // console.log(details);
+
+    useEffect(() => {
+        getDetails()
+    }, [dispatch]);
+  
 
     return (
         <>
@@ -29,17 +32,17 @@ const MovieDetails = () => {
             <div className="mainMovieDetailsContainer">
                 <img className="backgroundImg"></img>
                 <div className="rowMovieDetails">
-                    <img className="moviePosterImg" src={`http://image.tmdb.org/t/p/w500/${details.poster_path}`} alt=''></img>
+                    <img className="moviePosterImg" src={`http://image.tmdb.org/t/p/w500/${movie.poster_path}`} alt=''></img>
                     <div>
-                        <h1 className="movieName">{details.original_title}</h1>
+                        <h1 className="movieName">{movie.original_title}</h1>
                         <div className="movieTypeAndReleaseDate">
-                            <p></p>  
+                            <p></p>
                         </div>
-                        <div className="popularity">{details.vote_average}</div>
+                        <div className="popularity">{movie.vote_average}</div>
                         <p className="tagline">Tagline</p>
                         <div>
                             <h3 className="movieOverviewTitle">Overview</h3>
-                            <div className="movieOverviewDescription">{details.overview}</div>
+                            <div className="movieOverviewDescription">{movie.overview}</div>
                         </div>
                     </div>
 
@@ -47,7 +50,9 @@ const MovieDetails = () => {
             </div>
         </>
 
-    )
+    );
+
 }
+
 
 export default MovieDetails;

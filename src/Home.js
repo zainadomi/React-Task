@@ -2,7 +2,7 @@ import "./App.css";
 import { Header } from './Components/Header'
 import { NavBar } from "./Components/NavBar";
 import { Footer } from "./Components/Footer";
-import { GetMovies } from "./Components/GetMovies";
+import { Movies } from "./Components/Movies";
 
 export function Home({setQuery}) {
     return (
@@ -10,7 +10,7 @@ export function Home({setQuery}) {
 
             <NavBar />
             <Header setQuery={setQuery} />
-            <GetMovies />
+            <Movies />
             <Footer />
 
         </>
