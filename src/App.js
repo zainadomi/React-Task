@@ -1,6 +1,8 @@
 import "./App.css";
 import { React, useState } from "react";
 import { Home } from "./Home";
+import { Login } from "./Components/Login";
+import { Register } from "./Components/Register";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { GetSearchData } from "./Components/GetSearchData";
 import MovieDetails from "./Components/MovieDetails";
@@ -11,19 +13,29 @@ import store from './redux/store';
 
 
 function App() {
-  
-  const [query, setQuery] = useState();
-  return (
-    <Provider store={store}>
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Home setQuery={setQuery} />} />
-          <Route path="/search" element={<GetSearchData query={query} />} />
-          <Route path="/details/:movieId" element={<MovieDetails />} />
-          <Route path="watchList/:movieId" element={<WatchList query={query} />} />
 
-        </Routes>
-      </BrowserRouter></Provider>
+  const [currentForm,setCurrentForm] = useState('login');
+  const [query, setQuery] = useState();
+
+  const toggleForm = (forName)=>{
+    setCurrentForm(forName);
+  }
+  return (
+    <div className="App">
+     {
+      currentForm == "login" ?<Login onFormSwitch={toggleForm}/> : <Register onFormSwitch={toggleForm}/>  
+     } 
+    </div>
+    // <Provider store={store}>
+    //   <BrowserRouter>
+    //     <Routes>
+    //       <Route path="/" element={<Home setQuery={setQuery} />} />
+    //       <Route path="/search" element={<GetSearchData query={query} />} />
+    //       <Route path="/details/:movieId" element={<MovieDetails />} />
+    //       <Route path="watchList/:movieId" element={<WatchList query={query} />} />
+
+    //     </Routes>
+    //   </BrowserRouter></Provider>
 
 
   )

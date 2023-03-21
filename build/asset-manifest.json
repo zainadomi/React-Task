@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/zainadomi/React-Task/static/css/main.45500d3b.css",
+    "main.js": "/zainadomi/React-Task/static/js/main.7e4d4be5.js",
+    "index.html": "/zainadomi/React-Task/index.html",
+    "main.45500d3b.css.map": "/zainadomi/React-Task/static/css/main.45500d3b.css.map",
+    "main.7e4d4be5.js.map": "/zainadomi/React-Task/static/js/main.7e4d4be5.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.45500d3b.css",
+    "static/js/main.7e4d4be5.js"
+  ]
+}
